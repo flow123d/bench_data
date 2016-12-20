@@ -1,0 +1,46 @@
+flow123d_version: 2.0.0
+problem: !Coupling_Sequential
+  description: Constant flow and advective transport.
+  mesh:
+    mesh_file: mesh/square_256.msh
+  flow_equation: !Flow_Darcy_MH
+    nonlinear_solver:
+      linear_solver: !Petsc
+        a_tol: 1.0e-12
+        r_tol: 1.0e-12
+    input_fields:
+      - region: ALL
+        conductivity: 1e-1
+      - region: .left
+        bc_type: dirichlet
+        bc_pressure: 1
+      - region: .right
+        bc_type: dirichlet
+    output:
+      fields:
+        - pressure_p0
+        - velocity_p0
+    balance:
+      cumulative: true
+    output_stream: 
+      file: flow.pvd
+      format: !vtk
+        variant: ascii
+  solute_equation: !Coupling_OperatorSplitting
+    transport: !Solute_Advection_FV
+      input_fields:
+        - region: .left
+          bc_conc: 1
+    output_stream: 
+      file: transport.pvd
+      format: !vtk
+        variant: ascii
+#      times:
+#        - step: 10
+    substances:
+      - A
+    balance:
+      cumulative: true
+    time:
+      end_time: 10
+      max_dt: 1

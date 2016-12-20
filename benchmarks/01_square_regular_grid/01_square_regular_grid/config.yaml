@@ -1,0 +1,12 @@
+common_config:
+  proc: [1]
+  memory_limit: 4000
+  time_limit: 360
+  tags: [benchmark]
+
+
+test_cases:
+    - files:
+      - transport_256.yaml
+      - transport_512.yaml
+      tags: [benchmark-long]
