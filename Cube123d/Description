@@ -1,0 +1,19 @@
+Various discretizations of 01_steady_flow test. 
+Useful for scaling parallel tests.
+
+There are two variants:
+
+flow_bddc.con:
+We prescribe continuous Dirichlet boundary condition on the surface of the cube 
+given by linear function on boundary of all dimension. This problem is quite STIFF or badly conditioned. 
+
+The transition coefficient between dimensions is constantly equal to 1.0. Therefore, the interface between dimension 
+is not permeable enough to transfer flux from the 2D fractures which results to singularities in the crossection of the 2d fractures on the surface.
+
+flow_bddc_regular.con:
+We prescribe continuous Dirichlet boundary condition on the surface of the cube only for 3d elements.
+2d and 1d boundaries are impermeable.
+
+
+
+
