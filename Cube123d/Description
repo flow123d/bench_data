@@ -1,6 +1,19 @@
 Various discretizations of 01_steady_flow test. 
 Useful for scaling parallel tests.
 
+- steady MH flow (BDDC) 
+- steady MH flow (BDDC) (Fieldformula field in assembly)
+- steady MH flow (Petsc) + FV solute transport
+- unsteady MH flow + DG solute transport
+
+- unsteady LMH flow + DG heat
+- steady MH flow + FV transport + sorption
+- unsteady MH flow + DG solute transport + sorption
+- unsteady LMH Richards
+
+
+
+
 There are two variants:
 
 flow_bddc.con:
