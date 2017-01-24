@@ -11,7 +11,7 @@
 GEO_FILE="cube_123d.geo"
 
 # number of elements for single processor
-n_elements_one=8000
+n_elements_one=16000
 
 log_file=output.log
 
@@ -19,7 +19,7 @@ log_file=output.log
 # dimension of the mesh
 dimension=3
 # initial factor for step reduction
-init_factor=0.2;
+init_factor=0.16;
 
 #       
 # Creates mesh with number of elements close to given value 'n_elements_expect'.
