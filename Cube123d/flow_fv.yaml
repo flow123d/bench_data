@@ -47,7 +47,7 @@ problem: !Coupling_Sequential
           init_conc: 0
           sources_density: 0.001
         - region: .top
-          bc_conc: 2
+          bc_conc: [2, 1]
       output:
         times:
             - step: 0.2

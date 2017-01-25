@@ -42,7 +42,8 @@ problem: !Coupling_Sequential
       end_time: 1
     substances:
       [ "A", "B" ] 
-    transport: !Solute_Advection_FV
+    transport: !Solute_AdvectionDiffusion_DG
+      solver: !Petsc      
       input_fields:
         - region: BULK
           porosity: 0.1
@@ -62,9 +63,7 @@ problem: !Coupling_Sequential
           
           rock_density: 2.0
           sorption_type: linear
-          distribution_coefficient: [0.6, 0.4] 
-       
-          
+          distribution_coefficient: [0.6, 0.4]       
     output_stream:
       format: !vtk
         variant: ascii

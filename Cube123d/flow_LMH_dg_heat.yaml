@@ -11,7 +11,7 @@ problem: !Coupling_Sequential
         name: .bottom
         regions: [.3d_bottom_z, .2d_bottom_z]
     
-  flow_equation: !Flow_Darcy_MH   
+  flow_equation: !Flow_Richards_LMH   
     time:
       end_time: 1
     nonlinear_solver:
@@ -20,7 +20,7 @@ problem: !Coupling_Sequential
     input_fields:
 # bulk    
       - region: BULK
-        storativity: 0.1
+        storativity: 0.4
       - region: 1d_channel
         conductivity: 10
       - region: 2d_frac
@@ -44,31 +44,37 @@ problem: !Coupling_Sequential
     output_stream:       
       format: !vtk
         variant: ascii
-  solute_equation: !Coupling_OperatorSplitting
+  heat_equation: !Heat_AdvectionDiffusion_DG
     time:
       end_time: 1
-    substances:
-      [ "A", "B" ] 
-    transport: !Solute_AdvectionDiffusion_DG
-      solver: !Petsc        
-      input_fields:
-        - region: BULK
+    solver: !Petsc  
+        
+    input_fields:        
+        - region: BULK          
           porosity: 0.1
-          init_conc: 0
+          fluid_density: 1.0
+          fluid_heat_capacity: 4
+          fluid_heat_conductivity: 1
+          fluid_heat_exchange_rate: 1
+          solid_density: 3.0
+          solid_heat_capacity: 6
+          solid_heat_conductivity: 3
+      
+          init_temperature: 0
           #disp_l: [10, 5]
           #disp_t: [1, 2]
-          sources_density: [0.001, 0.002]
+          solid_thermal_source: 0.001
         - region: .top
           bc_type: inflow
-          bc_conc: [2, 1]
+          bc_temperature: 2
         - region: .bottom
           bc_type: inflow
-          bc_conc: [0, 0]
+          bc_temperature: 0
 
-      output:
-        times: 
-          - step: 0.2
-        fields: [ conc ]
+    output:
+      times: 
+        - step: 0.2
+      fields: [ temperature ]
     output_stream:
       format: !vtk
         variant: ascii    
