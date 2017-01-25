@@ -3,12 +3,14 @@ Sources for  generating large data for Flow123d benchmarks.
 
 ## Benchmarks on Cube123d
 
-- steady MH flow (BDDC) 
-- steady MH flow (Fieldformula field in assembly)
-- steady MH flow (Petsc) + FV solute transport
-- unsteady MH flow + DG solute transport
-- steady LMH Richards
-- unsteady LMH flow + DG heat
-- steady MH flow + FV transport + sorption
-- unsteady MH flow + DG solute transport + sorption
+flow_bddc_fieldformula.yaml     - steady MH flow (BDDC) (Fieldformula field in assembly)
+flow_bddc.yaml                  - steady MH flow (BDDC) 
+flow_fv.yaml                    - steady MH flow (Petsc) + FV solute transport
+flow_unsteady_dg.yaml           - unsteady MH flow + DG solute transport  
+                                
+flow_LMH_dg_heat.yaml           - unsteady LMH flow + DG heat
+flow_LMH_richards.yaml          - unsteady LMH Richards
+                                
+flow_dg_sorption.yaml           - steady MH flow + DG solute transport + sorption
+flow_fv_sorption.yaml           - steady MH flow + FV transport + sorption
 

@@ -1,31 +1,21 @@
 Various discretizations of 01_steady_flow test. 
 Useful for scaling parallel tests.
 
-- steady MH flow (BDDC) 
-- steady MH flow (BDDC) (Fieldformula field in assembly)
-- steady MH flow (Petsc) + FV solute transport
-- unsteady MH flow + DG solute transport
+Benchmarks on the cube mesh:
+    
+flow_bddc_fieldformula.yaml     - steady MH flow (BDDC) (Fieldformula field in assembly)
+flow_bddc.yaml                  - steady MH flow (BDDC) 
+flow_fv.yaml                    - steady MH flow (Petsc) + FV solute transport
+flow_unsteady_dg.yaml           - unsteady MH flow + DG solute transport  
+                                
+flow_LMH_dg_heat.yaml           - unsteady LMH flow + DG heat
+flow_LMH_richards.yaml          - unsteady LMH Richards
+                                
+flow_dg_sorption.yaml           - steady MH flow + DG solute transport + sorption
+flow_fv_sorption.yaml           - steady MH flow + FV transport + sorption
+                                
 
-- unsteady LMH flow + DG heat
-- steady MH flow + FV transport + sorption
-- unsteady MH flow + DG solute transport + sorption
-- unsteady LMH Richards
 
-
-
-
-There are two variants:
-
-flow_bddc.con:
-We prescribe continuous Dirichlet boundary condition on the surface of the cube 
-given by linear function on boundary of all dimension. This problem is quite STIFF or badly conditioned. 
-
-The transition coefficient between dimensions is constantly equal to 1.0. Therefore, the interface between dimension 
-is not permeable enough to transfer flux from the 2D fractures which results to singularities in the crossection of the 2d fractures on the surface.
-
-flow_bddc_regular.con:
-We prescribe continuous Dirichlet boundary condition on the surface of the cube only for 3d elements.
-2d and 1d boundaries are impermeable.
 
 
 
