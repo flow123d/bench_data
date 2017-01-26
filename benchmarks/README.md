@@ -4,7 +4,7 @@ tests:
  - transport.yaml
 ```
 
- <img src='benchmarks/01_square_regular_grid/square.png' alt='Cube mesh' width=300 />
+ <img src='01_square_regular_grid/square.png' alt='Cube mesh' width=300 />
 
 # 02 Cube 123d
 ```
@@ -21,7 +21,7 @@ tests:
 - flow_fv_sorption.yaml     
 ```
 
-<img src='benchmarks/02_cube_123d/cube.png' alt='Cube mesh' width=300 />
+<img src='02_cube_123d/cube.png' alt='Cube mesh' width=300 />
 
 
 
