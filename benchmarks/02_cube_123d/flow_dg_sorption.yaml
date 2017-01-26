@@ -1,0 +1,73 @@
+flow123d_version: 2.1.0
+problem: !Coupling_Sequential
+  description: Steady MH Darcy flow + DG transport + reaction term sorption
+  mesh:
+    mesh_file: /${INPUT}/mesh.msh       
+    regions:
+      - !Union
+        name: .top
+        regions: [.3d_top_z, .2d_top_z]
+    
+  flow_equation: !Flow_Darcy_MH    
+    nonlinear_solver:
+      linear_solver: !Petsc        
+    n_schurs: 2
+    input_fields:
+# bulk    
+      - region: 1d_channel
+        conductivity: 10
+      - region: 2d_frac
+        conductivity: 1
+      - region: 3d_cube
+        conductivity: 0.1    
+# boundary
+      - region: .top
+        bc_type: dirichlet
+        bc_pressure: 1          
+      - region: [.3d_bottom_z, .2d_bottom_z]
+        bc_type: dirichlet
+        bc_pressure: 0
+       
+    output:
+      fields:
+        - pressure_p0
+        - velocity_p0
+    output_stream:             
+      format: !vtk
+        variant: ascii
+  solute_equation: !Coupling_OperatorSplitting
+    time:
+      end_time: 1
+    substances:
+      [ "A", "B" ] 
+    transport: !Solute_AdvectionDiffusion_DG
+      solver: !Petsc      
+      input_fields:
+        - region: BULK
+          porosity: 0.1
+          init_conc: 0
+          sources_density: 0.001
+        - region: .top
+          bc_conc: 2
+      output:
+        times:
+            - step: 0.2
+        fields: [ conc ]        
+    reaction_term: !Sorption
+      substances: [ A, B ]       
+      solubility: [10, 10 ]
+      input_fields:      
+        - region: BULK
+          
+          rock_density: 2.0
+          sorption_type: linear
+          distribution_coefficient: [0.6, 0.4]       
+    output_stream:
+      format: !vtk
+        variant: ascii
+        
+          
+      
+      
+    
+    
