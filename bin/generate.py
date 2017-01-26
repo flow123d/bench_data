@@ -47,11 +47,11 @@ parser.add_argument('-o', dest='output', metavar='DIR', default='01_square_regul
 """)
 parser.add_argument('-y', dest='yaml_files', metavar='YAML_FILE', action='append', required=True, help="""R|
     Yaml files which should be configured. In template yaml file you can specify
-    value @mesh_file@ which will be replaced with appropriate value. Thsi value
+    value @mesh_file@ which will be replaced with appropriate value. This value
     point to mesh file relative path to this yaml file
 """)
 parser.add_argument('sizes', metavar='N', nargs='+', type=int, help="""R|
-    Sequnce of integers designating line division, 
+    Sequence of integers designating line division,
     given number 5 will set characteristic line length to 1/5
 """)
 opts = parser.parse_args()
