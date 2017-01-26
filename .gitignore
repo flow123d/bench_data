@@ -1,1 +1,4 @@
-**/test_results-*
+**/test_results*
+/.idea/
+/benchmarks/*/*/mesh_template.geo
+/benchmarks/*/*/output.log
