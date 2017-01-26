@@ -1,0 +1,28 @@
+common_config:
+  proc: [1, 2, 3, 4]
+  memory_limit: 4000
+  time_limit: 360
+  tags: [benchmark]
+
+
+test_cases:
+- files:
+  - transport.yaml
+  inputs:
+  - 1_15662_el
+  - 2_31498_el
+  - 3_47122_el
+  - 4_62302_el
+  - 5_78010_el
+  - 6_93742_el
+  - 7_109042_el
+  - 8_124498_el
+  # - 9_139918_el
+  # - 10_155122_el
+  # - 11_171110_el
+  # - 12_186658_el
+  # - 13_201610_el
+  # - 14_217138_el
+  # - 15_233242_el
+  # - 16_248510_el
+
