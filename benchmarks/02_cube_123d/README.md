@@ -16,6 +16,10 @@ flow_dg_sorption.yaml           - steady MH flow + DG solute transport + sorptio
 flow_fv_sorption.yaml           - steady MH flow + FV transport + sorption
 ```                        
 
+Mesh for this benchmark is:
 
+<p align="center">
+  <img src='cube.png' alt='Cube mesh' width=400 />
+</p>
 
 
