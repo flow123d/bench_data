@@ -1,7 +1,7 @@
 common_config:
   proc: [1, 2, 3, 4]
   memory_limit: 4000
-  time_limit: 360
+  time_limit: 1800
   tags: [benchmark]
 
 
