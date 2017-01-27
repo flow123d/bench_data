@@ -6,17 +6,35 @@ common_config:
 
 
 test_cases:
-- files:
-  - transport.yaml
-  inputs:
-  - 1_15662_el
-  - 2_31498_el
-  - 3_47122_el
-  - 4_62302_el
-  - 5_78010_el
-  - 6_93742_el
-  - 7_109042_el
-  - 8_124498_el
+- files:    [transport.yaml]
+  proc:     [1]
+  inputs:   [1_15662_el]
+  tags:     [benchmark, weak-scale]
+  
+- files:    [transport.yaml]
+  proc:     [2]
+  inputs:   [2_31498_el]
+  tags:     [benchmark, weak-scale]
+  
+- files:    [transport.yaml]
+  proc:     [3]
+  inputs:   [3_47122_el]
+  tags:     [benchmark, weak-scale]
+  
+- files:    [transport.yaml]
+  proc:     [4]
+  inputs:   [4_62302_el]
+  tags:     [benchmark, weak-scale]
+  
+  
+  # - 1_15662_el
+  # - 2_31498_el
+  # - 3_47122_el
+  # - 4_62302_el
+  # - 5_78010_el
+  # - 6_93742_el
+  # - 7_109042_el
+  # - 8_124498_el
   # - 9_139918_el
   # - 10_155122_el
   # - 11_171110_el
