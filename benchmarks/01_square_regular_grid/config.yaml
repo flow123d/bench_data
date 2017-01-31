@@ -7,24 +7,29 @@ common_config:
 
 test_cases:
 - files:    [transport.yaml]
-  proc:     [1]
-  inputs:   [1_15662_el]
-  tags:     [benchmark, weak-scale]
+  proc:     [1, 2, 3, 4]
+  inputs:   [1_15662_el, 2_31498_el, 3_47122_el, 4_62302_el]
+  tags:     [benchmark, scale]
   
-- files:    [transport.yaml]
-  proc:     [2]
-  inputs:   [2_31498_el]
-  tags:     [benchmark, weak-scale]
-  
-- files:    [transport.yaml]
-  proc:     [3]
-  inputs:   [3_47122_el]
-  tags:     [benchmark, weak-scale]
-  
-- files:    [transport.yaml]
-  proc:     [4]
-  inputs:   [4_62302_el]
-  tags:     [benchmark, weak-scale]
+# - files:    [transport.yaml]
+#   proc:     [1]
+#   inputs:   [1_15662_el]
+#   tags:     [benchmark, weak-scale]
+#   
+# - files:    [transport.yaml]
+#   proc:     [2]
+#   inputs:   [2_31498_el]
+#   tags:     [benchmark, weak-scale]
+#   
+# - files:    [transport.yaml]
+#   proc:     [3]
+#   inputs:   [3_47122_el]
+#   tags:     [benchmark, weak-scale]
+#   
+# - files:    [transport.yaml]
+#   proc:     [4]
+#   inputs:   [4_62302_el]
+#   tags:     [benchmark, weak-scale]
 #   
 # - files:    [transport.yaml]
 #   proc:     [5]
@@ -45,11 +50,11 @@ test_cases:
 #   proc:     [8]
 #   inputs:   [8_124498_el]
 #   tags:     [benchmark, weak-scale]
-
-- files:    [transport.yaml]
-  proc:     [1]
-  inputs:   [2_31498_el, 3_47122_el, 4_62302_el]
-  tags:     [benchmark, scale]
+# 
+# - files:    [transport.yaml]
+#   proc:     [1]
+#   inputs:   [2_31498_el, 3_47122_el, 4_62302_el]
+#   tags:     [benchmark, scale]
   
   # - 1_15662_el
   # - 2_31498_el
