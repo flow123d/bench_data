@@ -1,13 +1,13 @@
 common_config:
-  proc: [1, 2, 3, 4]
-  memory_limit: 6000
-  time_limit: 1800
+  proc: [1]
+  memory_limit: 1000   # 1gb per CPU
+  time_limit:   3600   # 1 hour solve time
   tags: [benchmark]
 
 
 test_cases:
 - files:    [transport.yaml]
-  proc:     [1, 2, 3, 4]
+  proc:     [1]
   inputs:   [1_15662_el, 2_31498_el, 3_47122_el, 4_62302_el]
   tags:     [benchmark, scale]
   
