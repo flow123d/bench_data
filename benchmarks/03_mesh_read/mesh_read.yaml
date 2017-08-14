@@ -1,0 +1,14 @@
+flow123d_version: 2.0.0
+problem: !Coupling_Sequential
+  description:
+  mesh:
+    mesh_file: ${INPUT}/mesh.msh
+  flow_equation: !Flow_Darcy_MH
+    nonlinear_solver:
+      max_it: 0
+      linear_solver: !Petsc
+    input_fields:
+    output_stream:
+      format: !vtk
+        variant: ascii
+    output:

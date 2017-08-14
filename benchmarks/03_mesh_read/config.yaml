@@ -1,0 +1,18 @@
+common_config:
+  proc: [1, 2]
+  memory_limit: 4000
+  time_limit: 1800
+  tags: [benchmark]
+
+
+test_cases:
+- files:
+  - mesh_read.yaml
+  proc:     [1]
+  inputs:
+    - ../02_cube_123d/1_15786_el
+    - ../02_cube_123d/2_29365_el
+    - ../02_cube_123d/4_58803_el
+    - ../02_cube_123d/8_118696_el
+    - ../02_cube_123d/16_261685_el
+  
