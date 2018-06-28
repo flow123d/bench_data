@@ -2,13 +2,13 @@
 # 
 # Author: Jan Brezina
 #
-flow123d_version: 2.0.0
+flow123d_version: 3.0.0
 problem: !Coupling_Sequential
   description: Steady MH Darcy flow, BDDC
   mesh:
-    mesh_file: /${INPUT}/mesh.msh       
+    mesh_file: ./${INPUT}/mesh.msh
     
-  flow_equation: !Flow_Darcy_MH    
+  flow_equation: !Flow_Darcy_MH
     nonlinear_solver:
       linear_solver: !Bddc
         r_tol: 1.0e-07
@@ -20,11 +20,11 @@ problem: !Coupling_Sequential
       - region: 2d_frac
         conductivity: 1
       - region: 3d_cube
-        conductivity: 0.1    
+        conductivity: 0.1
 # boundary
       - region: [.3d_top_z, .2d_top_z]
         bc_type: dirichlet
-        bc_pressure: 1          
+        bc_pressure: 1
       - region: [.3d_bottom_z, .2d_bottom_z]
         bc_type: dirichlet
         bc_pressure: 0
@@ -33,6 +33,6 @@ problem: !Coupling_Sequential
       fields:
         - pressure_p0
         - velocity_p0
-    output_stream:       
+    output_stream:
       format: !vtk
         variant: ascii

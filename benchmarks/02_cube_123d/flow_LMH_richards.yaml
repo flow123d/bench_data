@@ -1,10 +1,10 @@
 # *
 #  * Should give same results as flow_gmsh.con, but BC condition is given as piezo head.
-flow123d_version: 2.0.0
+flow123d_version: 3.0.0
 problem: !Coupling_Sequential
   description: Richards LMH, Petsc
   mesh:
-    mesh_file: /${INPUT}/mesh.msh       
+    mesh_file: ./${INPUT}/mesh.msh
     regions:
       - !Union
         name: .top
@@ -16,7 +16,7 @@ problem: !Coupling_Sequential
   flow_equation: !Flow_Richards_LMH
     nonlinear_solver:
       tolerance: 1e-3
-      linear_solver: !Petsc          
+      linear_solver: !Petsc
       max_it: 20
       converge_on_stagnation: false
     n_schurs: 2
@@ -25,7 +25,7 @@ problem: !Coupling_Sequential
       init_dt: 1
       # current time step enlargement logic do not allow to extent time step up to the outpu timestep
       # maximum timestep wil be just 50.
-      max_dt: 300        
+      max_dt: 300
       min_dt: 0.1
       
     input_fields:
@@ -39,7 +39,7 @@ problem: !Coupling_Sequential
         conductivity: 1e-7          # m/h 
       - region: BULK  
         # pressure -65 MPa; for g and density see conductivity below
-        init_pressure: -6619           
+        init_pressure: -6619
 
         # Bentonit
         #storativity: 5.846e-5
@@ -57,16 +57,10 @@ problem: !Coupling_Sequential
        
     output:
       times:
-        - step: 100     
+        - step: 100
       fields:
         - pressure_p0
         - velocity_p0
-    output_stream:             
+    output_stream:
       format: !vtk
         variant: ascii
-        
-          
-      
-      
-    
-    
