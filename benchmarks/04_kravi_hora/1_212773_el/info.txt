@@ -1,0 +1,9 @@
+Prvni dve vrstvy site rozdelena na SZ a JV cast oblasti
+Rozdeleni asi ne prilis sofistikovane.
+Soubor sítì obsahuje záhlùaví (seznam edit) bez pøidaných komentáøù.
+
+MSH soubory dat obsahuji pouze pole pouzivana pro zadání vstupù modelu.
+MSH soubory dat obsahuji data pouze na techelementech, kde je to treba 
+(aby nebyly zbytecne vypisy do log souboru).
+MSH soubory dat neobsahuji na zaèátku souboru seznam entit.
+Pridane pole s 10x navysenou hodnotou sigma pro okp bc_river

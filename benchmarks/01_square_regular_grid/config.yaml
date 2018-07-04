@@ -1,5 +1,5 @@
 common_config:
-  proc: [1]
+  proc: [1, 2]
   memory_limit: 1000   # 1gb per CPU
   time_limit:   3600   # 1 hour solve time
   tags: [benchmark]
@@ -7,69 +7,21 @@ common_config:
 
 test_cases:
 - files:    [transport.yaml]
-  proc:     [1]
-  inputs:   [1_15662_el, 2_31498_el, 3_47122_el, 4_62302_el]
-  tags:     [benchmark, scale]
-  
-# - files:    [transport.yaml]
-#   proc:     [1]
-#   inputs:   [1_15662_el]
-#   tags:     [benchmark, weak-scale]
-#   
-# - files:    [transport.yaml]
-#   proc:     [2]
-#   inputs:   [2_31498_el]
-#   tags:     [benchmark, weak-scale]
-#   
-# - files:    [transport.yaml]
-#   proc:     [3]
-#   inputs:   [3_47122_el]
-#   tags:     [benchmark, weak-scale]
-#   
-# - files:    [transport.yaml]
-#   proc:     [4]
-#   inputs:   [4_62302_el]
-#   tags:     [benchmark, weak-scale]
-#   
-# - files:    [transport.yaml]
-#   proc:     [5]
-#   inputs:   [5_78010_el]
-#   tags:     [benchmark, weak-scale]
-#   
-# - files:    [transport.yaml]
-#   proc:     [6]
-#   inputs:   [6_93742_el]
-#   tags:     [benchmark, weak-scale]
-#   
-# - files:    [transport.yaml]
-#   proc:     [7]
-#   inputs:   [7_109042_el]
-#   tags:     [benchmark, weak-scale]
-#   
-# - files:    [transport.yaml]
-#   proc:     [8]
-#   inputs:   [8_124498_el]
-#   tags:     [benchmark, weak-scale]
-# 
-# - files:    [transport.yaml]
-#   proc:     [1]
-#   inputs:   [2_31498_el, 3_47122_el, 4_62302_el]
-#   tags:     [benchmark, scale]
-  
-  # - 1_15662_el
-  # - 2_31498_el
-  # - 3_47122_el
-  # - 4_62302_el
-  # - 5_78010_el
-  # - 6_93742_el
-  # - 7_109042_el
-  # - 8_124498_el
-  # - 9_139918_el
-  # - 10_155122_el
-  # - 11_171110_el
-  # - 12_186658_el
-  # - 13_201610_el
-  # - 14_217138_el
-  # - 15_233242_el
-  # - 16_248510_el
 
+# available input directories (via field args: [-i, 1_15662_el]):
+#   - 1_15662_el
+#   - 2_31498_el
+#   - 3_47122_el
+#   - 4_62302_el
+#   - 5_78010_el
+#   - 6_93742_el
+#   - 7_109042_el
+#   - 8_124498_el
+#   - 9_139918_el
+#   - 10_155122_el
+#   - 11_171110_el
+#   - 12_186658_el
+#   - 13_201610_el
+#   - 14_217138_el
+#   - 15_233242_el
+#   - 16_248510_el

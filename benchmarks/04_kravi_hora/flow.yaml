@@ -1,0 +1,224 @@
+flow123d_version: 3.0.0
+problem: !Coupling_Sequential
+  description: Kravi hora - detailni model
+  mesh:
+    mesh_file: ./${INPUT}/KH__mesh.msh
+    regions:
+      - !Union
+        name: .river_nedvedicka
+        regions:
+          - .reach_117
+          - .reach_118
+          - .reach_119
+          - .reach_120
+          - .reach_121
+          - .reach_122
+      - !Union 
+        name: .river_bobruvka
+        regions:
+          - .reach_130 
+          - .reach_131
+          - .reach_132 
+          - .reach_133 
+          - .reach_134 
+          - .reach_135 
+          - .reach_136 
+          - .reach_137 
+          - .reach_138 
+          - .reach_139 
+          - .reach_140
+      - !Union 
+        name: .river_svratka
+        regions:
+          - .reach_100 
+          - .reach_101 
+          - .reach_110 
+          - .reach_111 
+          - .reach_112 
+          - .reach_113 
+          - .reach_114 
+          - .reach_115 
+          - .reach_116 
+          - .reach_123 
+          - .reach_124 
+          - .reach_125 
+          - .reach_150
+      - !Union 
+        name: .river_libochovka
+        regions:
+          - .reach_141 
+          - .reach_142 
+          - .reach_143 
+          - .reach_144
+            
+      - !Union 
+        name: .reky
+        regions:
+          - .river_nedvedicka 
+          - .river_bobruvka 
+          - .river_svratka
+          - .river_libochovka            
+            
+      - !Union 
+        name: hornina
+        regions:
+          - geo00_v1_JV           
+          - geo00_v1_SZ
+          - geo00_v2_JV           
+          - geo00_v2_SZ
+          - geo00_v2_mine          
+          - geo01_v3          #  MD_DURBACHIT
+          - geo01_v3_mine     #  MD_DURBACHIT
+          - geo01_v4          #  MD_DURBACHIT
+          - geo01_v5          #  MD_DURBACHIT
+          - geo02_v3          #  MG_GRANULIT_FELZEICKY
+          - geo02_v4          #  MG_GRANULIT_FELZEICKY
+          - geo02_v5          #  MG_GRANULIT_FELZEICKY
+          - geo03_v3          #  MG_ORTORULA_MIGMATIT_GFOHL_ML
+          - geo03_v4          #  MG_ORTORULA_MIGMATIT_GFOHL_ML
+          - geo03_v5          #  MG_ORTORULA_MIGMATIT_GFOHL_ML
+          - geo04_v3          #  MG_ORTORULA_MIGMATIT
+          - geo04_v4          #  MG_ORTORULA_MIGMATIT
+          - geo04_v5          #  MG_ORTORULA_MIGMATIT
+          - geo05_v3          #  MS_PARARULA_MIGMATIT
+          - geo05_v3_mine     #  MS_PARARULA_MIGMATIT
+          - geo05_v4          #  MS_PARARULA_MIGMATIT
+          - geo05_v5          #  MS_PARARULA_MIGMATIT
+          - geo05_v5_mine     #  MS_PARARULA_MIGMATIT
+          - geo06_v3          #  MS_MRAMOR
+          - geo06_v4          #  MS_MRAMOR
+          - geo06_v5          #  MS_MRAMOR
+          - geo07_v3          #  MS_PARARULA
+          - geo07_v3_mine     #  MS_PARARULA
+          - geo07_v4          #  MS_PARARULA
+          - geo07_v4_mine     #  MS_PARARULA
+          - geo07_v5          #  MS_PARARULA
+          - geo07_v5_mine     #  MS_PARARULA
+          - geo08_v3          #  MS_MOLDANUB_STRAZ_PESTRA_PMAOMS
+          - geo08_v3_mine     #  MS_MOLDANUB_STRAZ_PESTRA_PMAOMS
+          - geo08_v4          #  MS_MOLDANUB_STRAZ_PESTRA_PMAOMS
+          - geo08_v4_mine     #  MS_MOLDANUB_STRAZ_PESTRA_PMAOMS
+          - geo08_v5          #  MS_MOLDANUB_STRAZ_PESTRA_PMAOMS
+          - geo08_v5_mine     #  MS_MOLDANUB_STRAZ_PESTRA_PMAOMS
+          - geo09_v3          #  SK_SVRAT_ORTORULA
+          - geo09_v4          #  SK_SVRAT_ORTORULA
+          - geo09_v5          #  SK_SVRAT_ORTORULA
+          - geo10_v3          #  SK_SVRAT_PESTRA_PKMSA
+          - geo10_v4          #  SK_SVRAT_PESTRA_PKMSA
+          - geo10_v5          #  SK_SVRAT_PESTRA_PKMSA
+          - geo11_v3          #  SKR_AMFIBOLIT
+          - geo11_v3_mine     #  SKR_AMFIBOLIT
+          - geo11_v4          #  SKR_AMFIBOLIT
+          - geo11_v4_mine     #  SKR_AMFIBOLIT
+          - geo11_v5          #  SKR_AMFIBOLIT
+          - geo11_v5_mine     #  SKR_AMFIBOLIT
+          - geo12_v3          #  SKR_ORTORULA_MIGMATIT
+          - geo12_v3_mine     #  SKR_ORTORULA_MIGMATIT
+          - geo12_v4          #  SKR_ORTORULA_MIGMATIT
+          - geo12_v5          #  SKR_ORTORULA_MIGMATIT
+          - geo13_v3          #  SKR_SVOR_PARARULA
+          - geo13_v3_mine     #  SKR_SVOR_PARARULA
+          - geo13_v4          #  SKR_SVOR_PARARULA
+          - geo13_v5          #  SKR_SVOR_PARARULA
+          - geo14_v3          #  SKR_SVRAT_KRYST_OMS
+          - geo14_v3_mine     #  SKR_SVRAT_KRYST_OMS
+          - geo14_v4          #  SKR_SVRAT_KRYST_OMS
+          - geo14_v5          #  SKR_SVRAT_KRYST_OMS
+          - geo15_v3          #  MS_AMFIBOLIT
+          - geo15_v3_mine     #  MS_AMFIBOLIT
+          - geo16_v3          #  MS_PERIDOTIT_SERPENTINIT
+          - geo17_v3          #  SKR_KVARCIT
+            
+      - !Union 
+        name: tektonika
+        regions:
+          - tekt1
+          - tekt2
+          - tekt3
+   
+                  
+  flow_equation: !Flow_Darcy_MH
+    nonlinear_solver:
+      max_it: 8
+      tolerance: 1E-3  # 1E-6
+      linear_solver: !Petsc
+        r_tol: 1.0e-12
+        a_tol: 1.0e-12
+
+    n_schurs: 2
+
+    input_fields:
+    
+    - region: .povrch
+      bc_type: total_flux
+      bc_flux: !FieldElementwise
+        mesh_data_file: ./${INPUT}/KH__data_okp.msh
+        field_name: okp_totalflux_infiltrace15
+        default_value: 0.0
+      
+    - region: .reky
+      bc_type: river
+      bc_pressure: !FieldElementwise
+        mesh_data_file: ./${INPUT}/KH__data_okp.msh
+        field_name: okp_river_pressurehead_vypocet_redukce
+        default_value: 0.0
+      bc_switch_pressure: !FieldElementwise
+        mesh_data_file: ./${INPUT}/KH__data_okp.msh
+        field_name: okp_river_pressurehead_vypocet_redukce
+        default_value: 0.0
+      bc_robin_sigma:  !FieldElementwise
+        mesh_data_file: ./${INPUT}/KH__data_okp.msh
+        field_name: okp_river_sigma10x
+        default_value: 0.0
+      bc_flux: 2.0e-9  # 2.5e-9
+
+    - region: tektonika
+      conductivity: !FieldElementwise
+        mesh_data_file: ./${INPUT}/KH__data_vodivost.msh
+        field_name: vodivost_tektonika_var2
+        default_value: 0.0
+        
+    - region: tekt1
+      cross_section: 10
+      
+    - region: tekt2
+      cross_section: 5
+
+    - region: tekt3
+      cross_section: 1
+    
+    - region: hornina
+      conductivity: !FieldElementwise
+        mesh_data_file: ./${INPUT}/KH__data_vodivost.msh
+        field_name: vodivost_hornina_mine_var5x 
+        default_value: 0.0
+        
+    - region: geo00_v1_JV
+      conductivity: 4E-7
+
+    - region: geo00_v1_SZ
+      conductivity: 8E-7
+       
+    - region: geo00_v2_JV
+      conductivity: 4E-8
+      
+    - region: geo00_v2_SZ
+      conductivity: 8E-8  
+          
+    - region: geo00_v2_mine
+      conductivity: 16E-8
+    
+    balance: {add_output_times: false} 
+    
+    output:
+      fields:
+        - piezo_head_p0
+        - velocity_p0
+        - conductivity
+              
+    output_specific:
+      raw_flow_output: ./raw_output.txt 
+
+    output_stream:
+      file: ./proudeni.msh
+      format: !gmsh

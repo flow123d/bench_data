@@ -1,0 +1,10 @@
+common_config:
+  proc: [1, 2]
+  memory_limit: 2000
+  time_limit: 1800
+  tags: [benchmark]
+
+
+test_cases:
+- files:
+  - transport.yaml
