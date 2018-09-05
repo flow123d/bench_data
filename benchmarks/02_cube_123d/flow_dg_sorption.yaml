@@ -37,7 +37,7 @@ problem: !Coupling_Sequential
         variant: ascii
   solute_equation: !Coupling_OperatorSplitting
     time:
-      end_time: 1
+      end_time: 0.35
     substances:
       [ "A", "B" ] 
     transport: !Solute_AdvectionDiffusion_DG
