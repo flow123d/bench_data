@@ -2,7 +2,7 @@ flow123d_version: 3.0.0
 problem: !Coupling_Sequential
   description: test random fractures
   mesh:
-    mesh_file: ./${INPUT}/fractures50.msh
+    mesh_file: ./$INPUT_DIR$/fractures50.msh
   flow_equation: !Flow_Darcy_MH
     nonlinear_solver:
       linear_solver: !Petsc

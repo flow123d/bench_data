@@ -2,7 +2,7 @@ flow123d_version: 3.0.0
 problem: !Coupling_Sequential
   description: Steady MH Darcy flow + DG transport
   mesh:
-    mesh_file: ./${INPUT}/mesh.msh
+    mesh_file: ./$INPUT_DIR$/mesh.msh
     regions:
       - !Union
         name: .top

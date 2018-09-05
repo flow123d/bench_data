@@ -2,7 +2,7 @@ flow123d_version: 3.0.0
 problem: !Coupling_Sequential
   description: Constant flow and advective transport.
   mesh:
-    mesh_file: ./${INPUT}/mesh.msh
+    mesh_file: ./$INPUT_DIR$/mesh.msh
   flow_equation: !Flow_Darcy_MH
     nonlinear_solver:
       linear_solver: !Petsc

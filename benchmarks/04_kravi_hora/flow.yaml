@@ -2,7 +2,7 @@ flow123d_version: 3.0.0
 problem: !Coupling_Sequential
   description: Kravi hora - detailni model
   mesh:
-    mesh_file: ./${INPUT}/KH__mesh.msh
+    mesh_file: ./$INPUT_DIR$/KH__mesh.msh
     regions:
       - !Union
         name: .river_nedvedicka
@@ -152,29 +152,29 @@ problem: !Coupling_Sequential
     - region: .povrch
       bc_type: total_flux
       bc_flux: !FieldElementwise
-        mesh_data_file: ./${INPUT}/KH__data_okp.msh
+        mesh_data_file: ./$INPUT_DIR$/KH__data_okp.msh
         field_name: okp_totalflux_infiltrace15
         default_value: 0.0
       
     - region: .reky
       bc_type: river
       bc_pressure: !FieldElementwise
-        mesh_data_file: ./${INPUT}/KH__data_okp.msh
+        mesh_data_file: ./$INPUT_DIR$/KH__data_okp.msh
         field_name: okp_river_pressurehead_vypocet_redukce
         default_value: 0.0
       bc_switch_pressure: !FieldElementwise
-        mesh_data_file: ./${INPUT}/KH__data_okp.msh
+        mesh_data_file: ./$INPUT_DIR$/KH__data_okp.msh
         field_name: okp_river_pressurehead_vypocet_redukce
         default_value: 0.0
       bc_robin_sigma:  !FieldElementwise
-        mesh_data_file: ./${INPUT}/KH__data_okp.msh
+        mesh_data_file: ./$INPUT_DIR$/KH__data_okp.msh
         field_name: okp_river_sigma10x
         default_value: 0.0
       bc_flux: 2.0e-9  # 2.5e-9
 
     - region: tektonika
       conductivity: !FieldElementwise
-        mesh_data_file: ./${INPUT}/KH__data_vodivost.msh
+        mesh_data_file: ./$INPUT_DIR$/KH__data_vodivost.msh
         field_name: vodivost_tektonika_var2
         default_value: 0.0
         
@@ -189,7 +189,7 @@ problem: !Coupling_Sequential
     
     - region: hornina
       conductivity: !FieldElementwise
-        mesh_data_file: ./${INPUT}/KH__data_vodivost.msh
+        mesh_data_file: ./$INPUT_DIR$/KH__data_vodivost.msh
         field_name: vodivost_hornina_mine_var5x 
         default_value: 0.0
         
