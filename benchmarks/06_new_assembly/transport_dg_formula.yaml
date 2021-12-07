@@ -1,0 +1,48 @@
+flow123d_version: 3.1.0
+problem: !Coupling_Sequential
+  description: TransportDG - base
+  mesh:
+    mesh_file: ./$INPUT_DIR$/mesh.msh
+  flow_equation: !Flow_Darcy_LMH
+    nonlinear_solver:
+      linear_solver: !Petsc
+        r_tol: 1.0e-10
+        a_tol: 1.0e-10
+    input_fields:
+      - region: BULK
+#        conductivity: 0.5
+    output:
+      fields:
+        - pressure_p0
+        - velocity_p0
+    output_stream:
+      file: ./flow.pvd
+      format: !vtk
+        variant: ascii
+  solute_equation: !Coupling_OperatorSplitting
+    transport: !Solute_AdvectionDiffusion_DG
+      input_fields:
+        - region: BULK
+          porosity: !FieldFormula
+            value: x+y*z
+          cross_section: !FieldFormula
+            value: sin(Pi*x)+cos(Pi*y)
+      solver: !Petsc
+        a_tol: 1.0e-12
+        r_tol: 1.0e-12
+      dg_variant: symmetric
+      output:
+        fields: conc
+    output_stream:
+      file: ./transport.pvd
+      format: !vtk
+        variant: ascii
+      times:
+        - step: 0.8
+      precision: 15
+    substances:
+      - conc
+    time:
+      end_time: 1.0
+      max_dt: 1.0
+      min_dt: 1.0

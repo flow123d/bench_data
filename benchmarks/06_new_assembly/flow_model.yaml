@@ -1,0 +1,21 @@
+flow123d_version: 3.1.0
+problem: !Coupling_Sequential
+  description: Flow + AddPotential (FieldModel)
+  mesh:
+    mesh_file: ./$INPUT_DIR$/mesh.msh
+  flow_equation: !Flow_Darcy_LMH
+    nonlinear_solver:
+      linear_solver: !Petsc
+        r_tol: 1.0e-10
+        a_tol: 1.0e-10
+    input_fields:
+      - region: BULK
+        init_piezo_head: 0
+    output:
+      fields:
+        - pressure_p0
+        - velocity_p0
+    output_stream:
+      file: ./flow.pvd
+      format: !vtk
+        variant: ascii
