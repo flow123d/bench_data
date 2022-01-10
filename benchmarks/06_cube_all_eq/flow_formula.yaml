@@ -1,6 +1,6 @@
 flow123d_version: 3.1.0
 problem: !Coupling_Sequential
-  description: Flow + conductivity : FieldFormula
+  description: "Flow + conductivity : FieldFormula"
   mesh:
     mesh_file: ./$INPUT_DIR$/mesh.msh
   flow_equation: !Flow_Darcy_LMH
