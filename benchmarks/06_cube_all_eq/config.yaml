@@ -1,0 +1,22 @@
+common_config:
+  proc: [1]
+  memory_limit: 4000
+  time_limit: 1800
+  tags: [benchmark]
+
+
+test_cases:
+- files:
+  - flow_constant.yaml
+  - flow_model.yaml
+  - flow_formula.yaml
+  - flow_field_fe.yaml
+  - transport_dg_base.yaml
+  - transport_dg_formula.yaml
+  - transport_fv_base.yaml
+
+# available input directories (via field args: [-i, 1_100k_el]):
+#   - 1_100k_el
+#   - 1_frac_100k_el
+#   - 1_1M_el
+#   - 1_frac_1M_el
